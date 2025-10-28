@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel de Rendimiento del Servidor</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: 100vh;
+        }
+        .dashboard-container {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 800px;
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .metric-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+        .metric-card {
+            background-color: #e9ecef;
+            padding: 20px;
+            border-radius: 6px;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+        }
+        .metric-card h2 {
+            margin-top: 0;
+            color: #555;
+            font-size: 1.2em;
+        }
+        .metric-value {
+            font-size: 2.2em;
+            font-weight: bold;
+            color: #007bff;
+            margin-top: 10px;
+        }
+        .metric-description {
+            font-size: 0.9em;
+            color: #6c757d;
+            margin-top: 5px;
+        }
+        .loading {
+            color: #6c757d;
+            font-style: italic;
+        }
+        .last-updated {
+            text-align: center;
+            margin-top: 25px;
+            font-size: 0.85em;
+            color: #888;
+        }
+    </style>
+</head>
+<body>
+    <div class="dashboard-container">
+        <h1>Panel de Rendimiento del Servidor</h1>
+
+        <div class="metric-grid">
+            <div class="metric-card">
+                <h2>Memoria Utilizada (PHP)</h2>
+                <div id="memoryUsed" class="metric-value loading">Cargando...</div>
+                <div class="metric-description">Memoria consumida por el script PHP.</div>
+            </div>
+
+            <div class="metric-card">
+                <h2>Memoria Total (Sistema)</h2>
+                <div id="memoryTotal" class="metric-value loading">Cargando...</div>
+                <div class="metric-description">Memoria RAM total del sistema (aproximado).</div>
+            </div>
+            
+            <div class="metric-card">
+                <h2>Espacio en Disco (Libre)</h2>
+                <div id="diskFree" class="metric-value loading">Cargando...</div>
+                <div class="metric-description">Espacio libre disponible en disco.</div>
+            </div>
+
+            <div class="metric-card">
+                <h2>Espacio en Disco (Total)</h2>
+                <div id="diskTotal" class="metric-value loading">Cargando...</div>
+                <div class="metric-description">Espacio total del disco.</div>
+            </div>
+
+            <div class="metric-card">
+                <h2>Tráfico de Red (Simulado)</h2>
+                <div id="networkTraffic" class="metric-value loading">Cargando...</div>
+                <div class="metric-description">Velocidad de red de descarga (simulado).</div>
+            </div>
+
+            <div class="metric-card">
+                <h2>CPU (Simulado)</h2>
+                <div id="cpuUsage" class="metric-value loading">Cargando...</div>
+                <div class="metric-description">Uso de CPU (simulado).</div>
+            </div>
+        </div>
+
+        <div class="last-updated">
+            Última actualización: <span id="lastUpdatedTime"></span>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
